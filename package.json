@@ -1,0 +1,45 @@
+{
+  "name": "scrape-scripts",
+  "version": "1.0.0",
+  "description": "scrapes all <script> tags in an HTML document",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "map-limit": "0.0.1",
+    "object-assign": "^2.0.0",
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "scrape",
+    "script",
+    "tags",
+    "bundle",
+    "java",
+    "script",
+    "js",
+    "src",
+    "scripts",
+    "html",
+    "parse"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/scrape-scripts.git"
+  },
+  "homepage": "https://github.com/mattdesl/scrape-scripts",
+  "bugs": {
+    "url": "https://github.com/mattdesl/scrape-scripts/issues"
+  }
+}
