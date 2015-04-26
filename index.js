@@ -21,7 +21,6 @@ function scripts(body) {
 }
 
 function fetch(uri, script, cb) {
-  console.log('Fetching', uri)
   request.get({ uri: uri }, function(err, resp, body) {
     if (err) return cb(err)
     cb(null, assign({}, script, { body: body }))
