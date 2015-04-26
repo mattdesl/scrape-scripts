@@ -13,7 +13,7 @@ scrape('http://mattdesl.github.io/ink/index.html', function(err, results) {
   // bundle.js
   console.log(results[0].src)  
   
-  // string contents of http://mattdesl.github.io/ink/
+  // contents of http://mattdesl.github.io/ink/bundle.js
   console.log(results[0].body)
 })
 ```
