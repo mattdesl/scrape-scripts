@@ -3,6 +3,7 @@ var map = require('map-limit')
 var request = require('request')
 var assign = require('object-assign')
 var url = require('url')
+var path = require('path')
 
 var limit = 25
 
@@ -20,8 +21,8 @@ function scripts(body) {
   return tags
 }
 
-function fetch(uri, script, cb) {
-  request.get({ uri: uri }, function(err, resp, body) {
+function fetch(base, script, cb) {
+  request.get({ uri: script.src, baseUrl: base }, function(err, resp, body) {
     if (err) return cb(err)
     cb(null, assign({}, script, { body: body }))
   })
@@ -42,13 +43,16 @@ module.exports = function(opt, done) {
 
     //parse script tags
     var tags = scripts(body)
-    var base = opt.uri || opt.url
+    var baseUrl = url.parse(opt.uri || opt.url)
+    var base = baseUrl.href
+    if (path.extname(base)) {
+      base = path.dirname(base)
+    }
 
     //map script resources
     map(tags, limit, function(item, next) { 
       if (item.src) { //request and replace body
-        var uri = url.resolve(base, item.src)
-        fetch(uri, item, next)
+        fetch(base, item, next)
       } else {
         next(null, item)
       }
