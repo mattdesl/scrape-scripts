@@ -45,7 +45,7 @@ module.exports = function(opt, done) {
     var tags = scripts(body)
     var baseUrl = url.parse(opt.uri || opt.url)
     var base = baseUrl.href
-    if (path.extname(base)) {
+    if (baseUrl.pathname !== '/' && path.extname(base)) {
       base = path.dirname(base)
     }
 

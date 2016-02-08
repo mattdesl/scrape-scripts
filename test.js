@@ -1,5 +1,6 @@
 var scrape = require('./')
 var test = require('tape')
+var request = require('request');
 
 test('requests all the scripts in a HTML site', run('http://mattdesl.github.io/ink/index.html'))
 test('requests all the scripts in a HTML site', run('http://mattdesl.github.io/ink/'))
@@ -9,7 +10,7 @@ function run(site) {
   return function(t) {
     t.plan(3)
     //could use local server here or something
-    require('request').get({ 
+    request.get({
       uri: 'http://mattdesl.github.io/ink/bundle.js' 
     }, function(err, r, expected) {
       scrape(site, function(err, results) {
