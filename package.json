@@ -1,6 +1,6 @@
 {
   "name": "scrape-scripts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "scrapes all <script> tags in an HTML document",
   "main": "index.js",
   "license": "MIT",
