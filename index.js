@@ -22,9 +22,22 @@ function scripts(body) {
 }
 
 function fetch(base, script, cb) {
-  request.get({ uri: script.src, baseUrl: base }, function(err, resp, body) {
+  var fetchOpt
+  var scriptSrc = script.src
+  if (scriptSrc.indexOf('//') === 0) { // assume HTTP
+    scriptSrc = 'http:' + scriptSrc
+  }
+
+  // try to find relative
+  if (url.parse(scriptSrc).host) {
+    fetchOpt = { uri: scriptSrc }
+  } else {
+    fetchOpt = { uri: scriptSrc, baseUrl: base }
+  }
+
+  request.get(fetchOpt, function(err, resp, body) {
     if (err) return cb(err)
-    cb(null, assign({}, script, { body: body }))
+    cb(null, assign({}, script, { src: scriptSrc, body: body }))
   })
 }
 
