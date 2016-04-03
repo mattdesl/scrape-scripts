@@ -16,10 +16,12 @@
     "request": "^2.55.0"
   },
   "devDependencies": {
+    "ecstatic": "^1.4.0",
+    "semistandard": "^7.0.5",
     "tape": "^4.0.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "semistandard && node test/"
   },
   "keywords": [
     "scrape",

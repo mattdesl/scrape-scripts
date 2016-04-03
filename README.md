@@ -22,9 +22,14 @@ scrape('http://mattdesl.github.io/ink/index.html', function(err, results) {
 
 [![NPM](https://nodei.co/npm/scrape-scripts.png)](https://www.npmjs.com/package/scrape-scripts)
 
-#### `scrape(uri, callback)`
+#### `scrape(uri|opt, callback)`
 
-Scrapes the `uri` and triggers the `callback` after all script tags have been parsed and their `src` attributes followed. 
+Scrapes the `uri` String and triggers the `callback` after all script tags have been parsed and their `src` attributes followed.
+
+Or, you can pass an `opt` object with the following:
+
+- `uri` - the URI string
+- `loadSrc` - boolean, whether to follow script `src` attribute and load the contents (default true)
 
 ## License
 
